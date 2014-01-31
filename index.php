@@ -1,15 +1,16 @@
 <?php
+	// Start session
 	ob_start();
 	session_start();
 	require_once('inc/php/connect.php');
-	
+	// Check if cookie exists
 	if(isset($_GET['a'])){
 		setcookie('ue', '', time());
 		setcookie('up', '', time());
 		header("Location: index.php");
 		exit();
 	}
-	
+	// Check login
 	function checkLogin(){
 		global $mysqli;
 		$sql = "SELECT * FROM users WHERE user_email = '".$mysqli->real_escape_string($_COOKIE['ue'])."' AND user_password = '".$mysqli->real_escape_string($_COOKIE['up'])."'";
@@ -54,6 +55,7 @@
 			}
 		}
 	}
+	// Show registration form
 	if(isset($_POST['register'])){
 		$sql = "
 			INSERT INTO
@@ -70,7 +72,7 @@
 		if(!$dbres = $mysqli->query($sql)){
 			die('There was an error running the query ['.$mysqli->error.']');
 		}else{
-			setcookie('ue', $_POST['user_email'], time() + 604800);
+			setcookie('ue', $_POST['user_email'], time() + 604800);  	// If registration is a succes redirect back to start
 			setcookie('up', $_POST['user_password'], time() + 604800);
 			header("Location: index.php");
 		}
@@ -215,7 +217,8 @@ input[type=submit] {
 <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script type="text/javascript" src="inc/js/markerclusterer_compiled.js"></script>
-<script type="text/javascript">
+<!-- Connect to Google and get map with all pointers(diseases) -->
+<script type="text/javascript">	
 var map;
 	
 	function initialize() {
