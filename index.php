@@ -82,25 +82,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Ziektekaart</title>
+<title>Diseases map</title>
 <link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
 <style type="text/css">
-	html {
-		width: 100%;
-		height: 100%;
-		margin: 0;
-		padding: 0;
+html {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
 	}
-	body {
-		width: 100%;
-		height: 100%;
-		margin: 0;
-		padding: 0;
-		font-family: 'Roboto Condensed', sans-serif;
-		color:#fff;
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto Condensed', sans-serif;
+	color:#fff;
 	}
-	input[type=button] {
+input[type=button] {
     border: 0;    
 	background: #00b1ea;
 	height:35px;
@@ -481,6 +481,8 @@ var map;
         <div class="deasesAdded">Your disease has been added to the map. Thank you.</div>
         <div class="addDesease">
         <p> Drag the green marker to your location</span>
+        <br/>
+        <p>Make sure the pointer is not to close to your location if you like privacy.</p>
           <input name="desease_lat" id="desease_lat" type="hidden" />
           <input name="desease_lng" id="desease_lng" type="hidden" />
           <table border="0" cellspacing="0" cellpadding="3">
